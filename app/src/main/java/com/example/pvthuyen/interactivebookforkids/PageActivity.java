@@ -69,6 +69,15 @@ public class PageActivity extends Activity {
         StringBuilder stringBuilder = new StringBuilder();
 
         try {
+            readLine = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        TextView titleTextView = (TextView)findViewById(R.id.tvTitle);
+        titleTextView.setText(readLine);
+
+        try {
             while ((readLine = br.readLine()) != null) {
                 stringBuilder.append(readLine);
                 stringBuilder.append("\n");

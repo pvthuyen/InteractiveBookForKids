@@ -11,7 +11,7 @@ import java.util.TreeMap;
  */
 
 public final class Global {
-    public static final ArrayList<Integer> books = new ArrayList<>(Arrays.asList(R.drawable.book0, R.drawable.book1));
+    public static final ArrayList<Integer> books = new ArrayList<>(Arrays.asList(R.drawable.book0_cover, R.drawable.book1_cover));
 
     public static final ArrayList<Integer> book0 = new ArrayList<>(Arrays.asList(R.drawable.book0_page00, R.drawable.book0_page01,
             R.drawable.book0_page02, R.drawable.book0_page03, R.drawable.book0_page04, R.drawable.book0_page05,

@@ -44,14 +44,14 @@ public class PageListsActivity extends Activity {
         bookID = getIntent().getIntExtra("bookID", 0);
 
         LinearLayout container = (LinearLayout) PageListsActivity.this.findViewById(R.id.page_scroll_container);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
 
         ArrayList <Integer> thisBook = (ArrayList <Integer>)Global.bookpages.get(bookID);
 
         for (int i = 0; i < thisBook.size(); ++i) {
             LinearLayout item = new LinearLayout(PageListsActivity.this);
-            item.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            item.setLayoutParams(layoutParams);
             item.setOrientation(LinearLayout.HORIZONTAL);
             container.addView(item);
 

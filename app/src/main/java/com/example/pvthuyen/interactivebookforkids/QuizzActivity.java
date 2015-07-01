@@ -49,7 +49,6 @@ public class QuizzActivity extends Activity {
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         quizScore = sharedPref.getInt("quizScore", 0);
         String tmp = sharedPref.getString("recordedResult" + bookID, "");
-        quizScore = 1; tmp = "00";
 
         TextView quizScoreTextView = (TextView)findViewById(R.id.tvQuizScore);
         quizScoreTextView.setText("Your Score: " + quizScore);;

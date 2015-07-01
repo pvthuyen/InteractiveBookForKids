@@ -8,9 +8,12 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,21 +46,23 @@ public class MainActivity extends Activity {
         BitmapScaler.screenHeight = size.y;
 
         LinearLayout container = (LinearLayout) MainActivity.this.findViewById(R.id.book_scroll_container);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.gravity = Gravity.CENTER_VERTICAL;
 
         for (int i = 0; i < Global.books.size(); ++i) {
             LinearLayout item = new LinearLayout(MainActivity.this);
             item.setOrientation(LinearLayout.VERTICAL);
+            item.setLayoutParams(layoutParams);
             container.addView(item);
-
-            Bitmap image = BitmapFactory.decodeResource(getResources(),
-                    Global.books.get(i));
-            image = BitmapScaler.rescale(image, false, false);
 
             ImageView imageView = new ImageView(MainActivity.this);
             imageView.setId(i);
-            imageView.setImageBitmap(image);
             imageView.setLayoutParams(layoutParams);
+            imageView.setBackgroundResource(Global.books.get(i));
+
+            AnimationDrawable frameAnimation = (AnimationDrawable) imageView.getBackground();
+            frameAnimation.start();
+
             item.addView(imageView);
 
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +98,11 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.gc();
+    }
 }
+
