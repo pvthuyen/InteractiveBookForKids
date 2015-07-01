@@ -1,0 +1,36 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pvthuyen.interactivebookforkids.PageActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvContent"
+            android:id="@+id/ivPageImage"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btSpeak"
+            android:text="Audio"
+            android:layout_gravity="center_horizontal"/>
+
+
+
+        <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvContent"
+            android:layout_centerInParent="true"
+            android:layout_margin="1dp"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+</ScrollView>
