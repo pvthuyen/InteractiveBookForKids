@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/InteractiveBookforKids.iml" filepath="$PROJECT_DIR$/InteractiveBookforKids.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/YouTubeAndroidPlayerApi.jar/libs_YouTubeAndroidPlayerApi.jar.iml" filepath="$PROJECT_DIR$/libs/YouTubeAndroidPlayerApi.jar/libs_YouTubeAndroidPlayerApi.jar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/openCVLibrary2411/openCVLibrary2411.iml" filepath="$PROJECT_DIR$/openCVLibrary2411/openCVLibrary2411.iml" />
     </modules>
   </component>
 </project>

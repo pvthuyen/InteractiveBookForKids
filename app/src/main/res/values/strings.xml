@@ -8,4 +8,8 @@
     <string name="title_activity_quizz">QuizzActivity</string>
     <string name="title_activity_achievement">AchievementActivity</string>
     <string name="facebook_app_id">877290465679408</string>
+    <string name="title_activity_searchable">SearchableActivity</string>
+    <string name="search_hint">Search Books using book titles or page titles</string>
+    <string name="title_activity_visual_search">VisualSearchActivity</string>
+    <string name="title_activity_visual_search_result">VisualSearchResultActivity</string>
 </resources>

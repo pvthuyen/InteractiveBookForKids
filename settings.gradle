@@ -1,2 +1,3 @@
 include ':app'
 include ':libs/YouTubeAndroidPlayerApi.jar'
+include ':openCVLibrary2411'

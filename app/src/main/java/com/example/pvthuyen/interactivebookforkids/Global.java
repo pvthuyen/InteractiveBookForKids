@@ -2,15 +2,41 @@ package com.example.pvthuyen.interactivebookforkids;
 
 import com.example.pvthuyen.interactivebookforkids.R;
 
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfKeyPoint;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Created by pvthuyen on 6/29/15.
  */
 
 public final class Global {
+    static{ System.loadLibrary("opencv_java"); }
+
+    public static final Set<String> book0_keywords = new TreeSet<>();
+    public static final Set<String> book1_keywords = new TreeSet<>();
+    static {
+        book0_keywords.addAll(new ArrayList<String>(Arrays.asList("animal", "lion", "octopus", "elephant", "dolphin", "turtle",
+                "monkey")));
+        book0_keywords.add("animal");
+        book0_keywords.add("lion");
+        book0_keywords.add("octopus");
+        book0_keywords.add("elephant");
+        book0_keywords.add("dolphin");
+        book0_keywords.add("turtle");
+        book0_keywords.add("monkey");
+        book1_keywords.addAll(new ArrayList<String>(Arrays.asList("solar system", "sun", "mercury", "mars", "earth",
+                "jupiter", "neptune")));
+
+    }
+
+    public static final ArrayList<Set<String>> book_keywords = new ArrayList<>(Arrays.asList(book0_keywords, book1_keywords));
+
     public static final ArrayList<Integer> books = new ArrayList<>(Arrays.asList(R.drawable.book0_cover, R.drawable.book1_cover));
 
     public static final ArrayList<Integer> book0 = new ArrayList<>(Arrays.asList(R.drawable.book0_page00, R.drawable.book0_page01,
@@ -35,7 +61,7 @@ public final class Global {
 
     public static final ArrayList <ArrayList<Integer>> texts = new ArrayList<>(Arrays.asList(text0, text1));
 
-    public static final ArrayList <Integer> quiz0 = new ArrayList<>();
+    public static final ArrayList <Integer> quiz0 = new ArrayList<>(Arrays.asList(R.raw.book0_quiz0_txt, R.raw.book0_quiz1_txt));
     public static final ArrayList <Integer> quiz1 = new ArrayList<>(Arrays.asList(R.raw.book1_quiz0_txt, R.raw.book1_quiz1_txt,
             R.raw.book1_quiz2_txt));
 
@@ -48,5 +74,7 @@ public final class Global {
     static {
         achievements.put(3, "SbAUzcuvVYc");
     }
+
+    public static ArrayList <ArrayList<Mat>> bookpages_features = null;
 }
 

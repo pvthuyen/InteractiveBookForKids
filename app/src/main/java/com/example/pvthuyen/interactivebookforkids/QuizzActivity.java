@@ -50,8 +50,10 @@ public class QuizzActivity extends Activity {
         quizScore = sharedPref.getInt("quizScore", 0);
         String tmp = sharedPref.getString("recordedResult" + bookID, "");
 
+//        quizScore = 2; tmp = "";
+
         TextView quizScoreTextView = (TextView)findViewById(R.id.tvQuizScore);
-        quizScoreTextView.setText("Your Score: " + quizScore);;
+        quizScoreTextView.setText("Your Score: " + quizScore);
 
         if (tmp == "" || tmp.length() < Global.quizzes.get(bookID).size()) {
             tmp = "";
@@ -109,6 +111,16 @@ public class QuizzActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     recordedResult.setCharAt(quizID, '1');
+                    RadioButton radioButton = (RadioButton)findViewById(correctAnswer);
+                    radioButton.setChecked(true);
+
+                    RadioGroup radioGroup1 = (RadioGroup)findViewById(R.id.rgAnswers);
+                    radioGroup1.setEnabled(false);
+
+                    for (int i = 0; i < answerList.size(); ++i) {
+                        RadioButton radioButton1 = (RadioButton)findViewById(i);
+                        radioButton1.setEnabled(false);
+                    }
                     if (view.getId() == correctAnswer) {
                         ++quizScore;
                         AlertDialog alertDialog = new AlertDialog.Builder(QuizzActivity.this).create();
@@ -191,6 +203,36 @@ public class QuizzActivity extends Activity {
                 radioButton1.setEnabled(false);
             }
         }
+
+        Button helpButton = (Button)findViewById(R.id.btHelp);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RadioButton radioButton = (RadioButton)findViewById(correctAnswer);
+                radioButton.setChecked(true);
+
+                RadioGroup radioGroup1 = (RadioGroup)findViewById(R.id.rgAnswers);
+                radioGroup1.setEnabled(false);
+
+                for (int i = 0; i < answerList.size(); ++i) {
+                    RadioButton radioButton1 = (RadioButton)findViewById(i);
+                    radioButton1.setEnabled(false);
+                }
+
+                recordedResult.setCharAt(quizID, '1');
+
+                AlertDialog alertDialog = new AlertDialog.Builder(QuizzActivity.this).create();
+                alertDialog.setTitle("HELP");
+                alertDialog.setMessage("The correct answer is " + answerList.get(correctAnswer));
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        });
     }
 
     private void checkAchievement() {

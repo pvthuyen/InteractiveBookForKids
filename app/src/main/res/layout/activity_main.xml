@@ -4,6 +4,23 @@
     tools:context="com.example.user.interactivebooksforkids.BookPageListFragment"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/search_view">
+        </SearchView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Visual Search"
+            android:id="@+id/btVisualSearch"
+        />
+
+    </LinearLayout>
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
